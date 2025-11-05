@@ -3,7 +3,7 @@
   padding: 0px;
   box-sizing: border-box;
 }
-
+/* variables */
 :root {
   --bg-color: #010101;
 }
@@ -55,4 +55,18 @@ body {
   bottom: 180px;
   color: #fff;
   width: 12px;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  section,
+  div,
+  img {
+    max-width: 100%;
+  }
 }
