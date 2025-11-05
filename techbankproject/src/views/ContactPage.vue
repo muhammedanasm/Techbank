@@ -286,10 +286,18 @@ export default {
 @media (max-width: 992px) {
   .contact-container {
     grid-template-columns: 1fr;
-    text-align: center;
+    gap: 0px;
   }
   .contact-right {
     margin-top: 40px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .contact-heading {
+    font-size: 27px;
+  }
+  .contact-image {
+    width: 100%;
   }
 }
 </style>

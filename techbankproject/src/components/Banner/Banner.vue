@@ -157,9 +157,16 @@ export default {
   font-size: 14px;
   padding-top: 8px;
 }
+.banner-image {
+  width: 100%;
+}
+.view-products:hover {
+  background: linear-gradient(103.84deg, #8500a6 17.98%, #330694 69.45%);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+}
 
 /* responsive */
-@media (min-width: 300px) and (max-width: 567px) {
+@media (min-width: 300px) and (max-width: 767px) {
   .banner-title {
     position: absolute;
     top: 67%;

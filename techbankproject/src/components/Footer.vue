@@ -148,6 +148,10 @@ export default {
   border-radius: 30px;
   cursor: pointer;
 }
+.footer-links p:hover {
+  color: #e1c8ff;
+}
+
 .address {
   padding-top: 30px;
 }

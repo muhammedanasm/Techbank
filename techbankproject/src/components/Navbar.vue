@@ -38,14 +38,16 @@
         <router-link to="/teams" @click="closeMenu">Teams</router-link>
         <router-link to="/career" @click="closeMenu">Career</router-link>
         <router-link to="/blog" @click="closeMenu">Blog</router-link>
-        <button class="contact-button-mobile" @click="closeMenu">
-          <router-link to="/contact">Contact</router-link>
-        </button>
+        <router-link to="/contact" class="contact-button-link mob-btn-link">
+          <button class="contact-button-mobile" @click="closeMenu">
+            Contact
+          </button>
+        </router-link>
       </div>
       <div class="contact-button-div">
-        <button class="contact-button">
-          <router-link to="/contact">Contact</router-link>
-        </button>
+        <router-link to="/contact" class="contact-button-link">
+          <button class="contact-button">Contact</button>
+        </router-link>
       </div>
     </nav>
   </div>
@@ -220,6 +222,16 @@ export default {
   .contact-button {
     margin-top: 10px;
     width: 80%;
+  }
+  .mob-btn-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+@media (min-width: 900px) and (max-width: 1024px) {
+  .contact-button-div {
+    display: none;
   }
 }
 </style>

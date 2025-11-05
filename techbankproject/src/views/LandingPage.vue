@@ -1,9 +1,14 @@
 <template>
   <div class="landing-page">
+    <!-- scroll to top -->
+    <div class="scroll-to-top" v-show="showScrollTop" @click="scrollToTop">
+      <img src="@/assets/images/scroll.png" alt="scroll img" />
+    </div>
+
     <!-- Banner Component -->
     <AppBanner />
     <!-- About section -->
-    <section class="about">
+    <section class="about" ref="aboutSection">
       <h2 class="about-title">About Us</h2>
       <p class="subtitle">
         TechBank is a blockchain product company creating decentralized tools
@@ -126,6 +131,7 @@ export default {
   },
   data() {
     return {
+      showScrollTop: false,
       projects: [
         {
           title: "DWALLET",
@@ -232,6 +238,22 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const aboutTop = this.$refs.aboutSection.offsetTop;
+      const scrollY = window.scrollY;
+      this.showScrollTop = scrollY > aboutTop - 100; // show when reaching About section
+    },
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
   },
 };
 </script>
@@ -343,6 +365,10 @@ export default {
 .feature-card-count p {
   font-size: 16px;
   color: #c0c0c0;
+}
+.projects___card-button:hover {
+  background: linear-gradient(103.84deg, #8500a6 17.98%, #330694 69.45%);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
 }
 .feature-card-count-center p {
   font-size: 16px;
@@ -520,9 +546,32 @@ export default {
 .slider-section {
   margin-top: 50px;
 }
+.scroll-to-top {
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 10;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-5px);
+}
+[v-cloak] {
+  display: none;
+}
 
 /* responsive */
-@media (min-width: 300px) and (max-width: 567px) {
+@media (min-width: 300px) and (max-width: 767px) {
   .projects___card {
     grid-template-columns: 1fr;
   }
@@ -551,6 +600,14 @@ export default {
   }
   .feature-card-count-center h2 {
     font-size: 20px;
+  }
+  .scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  .scroll-to-top img {
+    width: 60px;
   }
 }
 </style>
