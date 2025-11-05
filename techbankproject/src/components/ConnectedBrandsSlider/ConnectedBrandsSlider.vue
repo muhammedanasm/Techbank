@@ -1,0 +1,168 @@
+<template>
+  <section class="connected-brands-slider">
+    <p class="innovative">From One Root, Many Branches</p>
+    <h2 class="technologies-title">Connected Brands</h2>
+
+    <Carousel
+      :items-to-show="3"
+      :wrap-around="true"
+      :autoplay="2500"
+      :pause-autoplay-on-hover="true"
+      :transition="700"
+      :gap="30"
+      :breakpoints="{
+        1024: { itemsToShow: 3 },
+        768: { itemsToShow: 2 },
+        0: { itemsToShow: 1 },
+      }"
+      class="connected-brands-swiper"
+    >
+      <Slide
+        v-for="(brand, index) in brands"
+        :key="index"
+        class="connected-grid-card-wrapper"
+      >
+        <div class="connected-grid-card">
+          <h3>{{ brand.title }}</h3>
+          <p class="brand-desc">{{ brand.description }}</p>
+          <div class="social-media-icons">
+            <AnOutlinedLinkedin />
+            <AkInstagramFill />
+            <BsTwitterX />
+            <AnOutlinedYoutube />
+          </div>
+          <div class="image-wrapper">
+            <img :src="brand.image" alt="Connected Brand Image" />
+          </div>
+        </div>
+      </Slide>
+    </Carousel>
+  </section>
+</template>
+
+<script>
+import "vue3-carousel/dist/carousel.css";
+import { Carousel, Slide } from "vue3-carousel";
+import {
+  AnOutlinedLinkedin,
+  AkInstagramFill,
+  BsTwitterX,
+  AnOutlinedYoutube,
+} from "@kalimahapps/vue-icons";
+
+export default {
+  name: "ConnectedBrandsSlider",
+  components: {
+    Carousel,
+    Slide,
+    AnOutlinedLinkedin,
+    AkInstagramFill,
+    BsTwitterX,
+    AnOutlinedYoutube,
+  },
+  props: {
+    brands: {
+      type: Array,
+      required: true,
+    },
+  },
+};
+</script>
+
+<style scoped>
+.connected-brands-slider {
+  margin-top: 150px;
+  display: none;
+}
+.connected-brands-swiper {
+  margin-top: 30px;
+  --carousel-gap: 0px;
+}
+.connected-grid-card-wrapper {
+  background: linear-gradient(
+    151.62deg,
+    #bb83ff 1.55%,
+    #b1b1b1 28.63%,
+    #313131 115.73%
+  );
+  border-radius: 20px;
+  padding: 1px;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  margin-right: var(--carousel-gap);
+}
+.connected-grid-card {
+  background: #0d0d0d;
+  border-radius: 18px;
+  color: #fff;
+  padding: 30px 16px 0px 16px;
+  transition: transform 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.connected-grid-card-wrapper {
+  position: relative;
+  border-radius: 20px;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  margin-right: var(--carousel-gap);
+  overflow: hidden;
+  background: linear-gradient(
+    151.62deg,
+    #bb83ff 1.55%,
+    #b1b1b1 28.63%,
+    #313131 115.73%
+  );
+}
+
+.connected-grid-card {
+  background: #0d0d0d;
+  border-radius: inherit; /* perfectly matches outer radius */
+  color: #fff;
+  padding: 30px 16px 0px 16px;
+  transition: transform 0.3s ease;
+  height: 100%;
+  flex: 1;
+}
+
+.connected-grid-card h3 {
+  font-size: 24px;
+  font-weight: 400;
+  padding-bottom: 5px;
+}
+.connected-grid-card p {
+  color: #a9a9a9;
+  padding-bottom: 15px;
+}
+.social-media-icons {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+.image-wrapper {
+  margin-top: 20px;
+  text-align: center;
+}
+.brand-desc {
+  max-width: 300px;
+}
+.innovative {
+  text-align: center;
+  color: #bb83ff;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+.technologies-title {
+  color: #fff;
+  font-family: "NYXERIN", Arial, sans-serif;
+  text-align: center;
+  padding-bottom: 20px;
+}
+</style>

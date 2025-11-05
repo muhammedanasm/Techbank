@@ -1,0 +1,21 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #010101;
+}
+
+@font-face {
+  font-family: "Ninetea";
+  src: url("@/assets/fonts/Ninetea Font/Ninetea-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Ninetea", Arial, sans-serif !important;
+  background: var(--bg-color);
+}
