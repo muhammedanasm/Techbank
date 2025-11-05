@@ -56,7 +56,7 @@ body {
   color: #fff;
   width: 12px;
 }
-
+/* mobile */
 @media (max-width: 768px) {
   html,
   body {
