@@ -530,10 +530,27 @@ export default {
     grid-template-columns: 1fr 1fr;
   }
   .subtitle {
-    padding: 0px 20px;
+    padding: 0px 0px;
   }
   .feature-cards-parent {
-    gap: 0px;
+    gap: 20px;
+    margin-top: 15px;
+  }
+  .feature-card-count-center {
+    padding: 0px 20px;
+  }
+  .landing-page {
+    padding: 0px;
+    margin: 20px;
+  }
+  .about-title {
+    padding-bottom: 30px;
+  }
+  .feature-card-count h2 {
+    font-size: 20px;
+  }
+  .feature-card-count-center h2 {
+    font-size: 20px;
   }
 }
 </style>

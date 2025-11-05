@@ -42,7 +42,7 @@
           <router-link to="/contact">Contact</router-link>
         </button>
       </div>
-      <div>
+      <div class="contact-button-div">
         <button class="contact-button">
           <router-link to="/contact">Contact</router-link>
         </button>
@@ -171,7 +171,7 @@ export default {
   .contact-button-mobile {
     display: block;
   }
-  .contact-button {
+  .contact-button-div {
     display: none;
   }
 
@@ -197,6 +197,8 @@ export default {
     opacity: 1;
     pointer-events: all;
     animation: slideDown 0.4s ease forwards;
+    height: 100%;
+    padding: 75px;
   }
 
   @keyframes slideDown {

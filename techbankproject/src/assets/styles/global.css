@@ -19,3 +19,40 @@ body {
   font-family: "Ninetea", Arial, sans-serif !important;
   background: var(--bg-color);
 }
+
+.blogs-swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: #fff !important;
+}
+
+.blogs-swiper .swiper-pagination-bullet {
+  width: 5px !important;
+  height: 5px !important;
+  border-radius: 0 !important;
+  background: #848484 !important;
+  margin: 0 6px !important;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.blogs-swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: #fff !important;
+  transform: scale(1.05);
+}
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-horizontal.swiper-pagination-bullets {
+  position: relative;
+  top: 5px;
+}
+.swiper-button-prev {
+  position: absolute;
+  left: 0%;
+  bottom: 185px;
+  color: #fff;
+  width: 12px;
+}
+.swiper-button-next {
+  position: absolute;
+  right: 0%;
+  bottom: 180px;
+  color: #fff;
+  width: 12px;
+}

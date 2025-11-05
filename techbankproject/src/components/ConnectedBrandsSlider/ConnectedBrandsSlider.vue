@@ -3,21 +3,29 @@
     <p class="innovative">From One Root, Many Branches</p>
     <h2 class="technologies-title">Connected Brands</h2>
 
-    <Carousel
-      :items-to-show="3"
-      :wrap-around="true"
-      :autoplay="2500"
-      :pause-autoplay-on-hover="true"
-      :transition="700"
-      :gap="30"
+    <swiper
+      :modules="[
+        require('swiper/modules').Navigation,
+        require('swiper/modules').Pagination,
+        require('swiper/modules').Autoplay,
+      ]"
+      :slides-per-view="3"
+      :space-between="30"
+      :loop="true"
+      :autoplay="{
+        delay: 2500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      }"
+      :speed="700"
       :breakpoints="{
-        1024: { itemsToShow: 3 },
-        768: { itemsToShow: 2 },
-        0: { itemsToShow: 1 },
+        320: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
       }"
       class="connected-brands-swiper"
     >
-      <Slide
+      <swiper-slide
         v-for="(brand, index) in brands"
         :key="index"
         class="connected-grid-card-wrapper"
@@ -25,24 +33,28 @@
         <div class="connected-grid-card">
           <h3>{{ brand.title }}</h3>
           <p class="brand-desc">{{ brand.description }}</p>
+
           <div class="social-media-icons">
             <AnOutlinedLinkedin />
             <AkInstagramFill />
             <BsTwitterX />
             <AnOutlinedYoutube />
           </div>
+
           <div class="image-wrapper">
             <img :src="brand.image" alt="Connected Brand Image" />
           </div>
         </div>
-      </Slide>
-    </Carousel>
+      </swiper-slide>
+    </swiper>
   </section>
 </template>
 
 <script>
-import "vue3-carousel/dist/carousel.css";
-import { Carousel, Slide } from "vue3-carousel";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import {
   AnOutlinedLinkedin,
   AkInstagramFill,
@@ -53,8 +65,8 @@ import {
 export default {
   name: "ConnectedBrandsSlider",
   components: {
-    Carousel,
-    Slide,
+    swiper: Swiper,
+    "swiper-slide": SwiperSlide,
     AnOutlinedLinkedin,
     AkInstagramFill,
     BsTwitterX,
@@ -72,10 +84,10 @@ export default {
 <style scoped>
 .connected-brands-slider {
   margin-top: 150px;
-  display: none;
 }
 .connected-brands-swiper {
   margin-top: 30px;
+  width: 100%;
   --carousel-gap: 0px;
 }
 .connected-grid-card-wrapper {
@@ -103,7 +115,6 @@ export default {
   flex-direction: column;
   justify-content: space-between;
 }
-
 .connected-grid-card-wrapper {
   position: relative;
   border-radius: 20px;
@@ -119,17 +130,15 @@ export default {
     #313131 115.73%
   );
 }
-
 .connected-grid-card {
   background: #0d0d0d;
-  border-radius: inherit; /* perfectly matches outer radius */
+  border-radius: inherit;
   color: #fff;
   padding: 30px 16px 0px 16px;
   transition: transform 0.3s ease;
   height: 100%;
   flex: 1;
 }
-
 .connected-grid-card h3 {
   font-size: 24px;
   font-weight: 400;
@@ -149,6 +158,12 @@ export default {
 .image-wrapper {
   margin-top: 20px;
   text-align: center;
+}
+.image-wrapper img {
+  width: 100%;
+
+  border-radius: 12px;
+  object-fit: cover;
 }
 .brand-desc {
   max-width: 300px;

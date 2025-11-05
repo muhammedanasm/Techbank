@@ -162,16 +162,16 @@ export default {
 @media (min-width: 300px) and (max-width: 567px) {
   .banner-title {
     position: absolute;
-    top: 65%;
-    left: 15%;
+    top: 67%;
+    left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
     font-size: 35px;
-    line-height: 57px;
+    line-height: 50px;
   }
   .banner-image {
-    width: 370px;
-    height: 100vh;
+    width: 100%;
+    height: 90vh;
   }
   .banner_title_top {
     display: none;
@@ -179,18 +179,29 @@ export default {
   .banner-title-bottom {
     gap: 15px;
     flex-direction: column;
-    bottom: 3%;
-    left: 15%;
+    bottom: 0%;
+    left: 50%;
   }
   .banner-small-img img {
-    left: 15%;
+    left: 50%;
+    max-width: 140px;
   }
   .banner-gif img {
-    height: 500px;
+    height: 400px;
     margin: 0;
     position: absolute;
-    top: 15%;
-    left: 2%;
+    top: 18%;
+    left: 20%;
+  }
+  .banner-title-bottom p {
+    width: 330px;
+    text-align: center;
+  }
+  .view-products {
+    gap: 0px;
+    padding: 5px 5px 5px 20px;
+    justify-content: space-between;
+    margin: 0px 75px;
   }
 }
 </style>

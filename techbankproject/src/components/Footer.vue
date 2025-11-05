@@ -153,5 +153,31 @@ export default {
 }
 /* responsive */
 @media (min-width: 300px) and (max-width: 567px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+  }
+  .socila-media-copyrihgts {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .social-media-icons {
+    gap: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    border-bottom: 1px solid #fbfdff26;
+    padding-bottom: 15px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .copy-right {
+    border-bottom: 1px solid #fbfdff26;
+    padding-bottom: 15px;
+    width: 100%;
+    text-align: center;
+  }
+  .footer-links {
+    margin-top: 30px;
+  }
 }
 </style>
